@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VueHello</title>
+    <%= csrf_meta_tags %>
+    <%= javascript_pack_tag 'application' %>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'></link>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="mt-4">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>
