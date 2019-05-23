@@ -9,6 +9,8 @@
 
 console.log('Hello World from Webpacker')
 
+import 'babel-polyfill'
+
 import messageRoomIndex from '../message-room-index'
 import messageRoomShow from '../message-room-show'
 
