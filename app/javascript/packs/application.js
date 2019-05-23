@@ -12,7 +12,14 @@ console.log('Hello World from Webpacker')
 import messageRoomIndex from '../message-room-index'
 import messageRoomShow from '../message-room-show'
 
+import axios from 'axios'
+
+
 window.addEventListener('DOMContentLoaded', () => {
+  const token = document.querySelector('meta[name=csrf-token]').content
+  axios.defaults.headers['X-Requested-With'] = 'XMLHttpRequest'
+  axios.defaults.headers['X-CSRF-TOKEN'] = token
+
   const elm = document.querySelector('[data-js-action]')
   if (!elm) return
 

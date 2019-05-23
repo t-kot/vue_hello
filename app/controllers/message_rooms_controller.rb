@@ -1,6 +1,6 @@
 class MessageRoomsController < ApplicationController
   def index
-    @message_room = MessageRoom.all
+    @message_rooms = MessageRoom.all
   end
 
   def show

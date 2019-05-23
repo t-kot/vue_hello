@@ -1,3 +1,13 @@
 const environment = require('./environment')
+const merge = require('webpack-merge');
 
-module.exports = environment.toWebpackConfig()
+const config = merge.smartStrategy({
+})(environment.toWebpackConfig(), {
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js'
+        }
+    },
+});
+
+module.exports = config;

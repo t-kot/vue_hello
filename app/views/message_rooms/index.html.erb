@@ -1,3 +1,13 @@
-<div class="container" data-js-action='message-room-index'>
+<div class="container" data-js-action='message-room-index' id='app' data-message-rooms='<%= @message_rooms.to_json %>'>
   <h1>メッセージ</h1>
+
+  <form action="#">
+    <div class="form-group">
+      <label for="">タイトル</label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <a href="#" class="btn btn-primary">投稿</a>
+    </div>
+  </form>
 </div>
