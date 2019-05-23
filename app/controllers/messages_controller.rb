@@ -10,6 +10,17 @@ class MessagesController < ApplicationController
     end
   end
 
+  def update
+    @message_room = MessageRoom.find(params[:message_room_id])
+    @message = @message_room.messages.find(params[:id])
+
+    if @message.update(message_params)
+      render json: @message
+    else
+      render json: @message, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @message_room = MessageRoom.find(params[:message_room_id])
     @message = @message_room.messages.find(params[:id])

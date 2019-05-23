@@ -14,13 +14,18 @@ export default () => {
       messages,
       newMessage: {
         body: '',
-      }
+      },
+      showError: false,
     },
     components: {
       'message-box': messageBox,
     },
     methods: {
       async addMessage() {
+        if (!this.newMessage.body.length) {
+          this.showError = true
+          return
+        }
         try {
           const res = await axios.post(`/message_rooms/${this.messageRoom.id}/messages`, {
             message: {
@@ -32,6 +37,16 @@ export default () => {
         } catch (e) {
           console.log(e)
           alert('メッセージの投稿に失敗しました')
+        }
+      },
+      async updateMessage(message) {
+        try {
+          const res = await axios.patch(`/message_rooms/${this.messageRoom.id}/messages/${message.id}`, {
+            message,
+          })
+        } catch(e) {
+          console.log(e)
+          alert('更新に失敗')
         }
       },
       async deleteMessage(message) {

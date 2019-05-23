@@ -3,13 +3,14 @@
   <h1><%= @message_room.title %></h1>
 
   <div class="message-list">
-    <message-box v-for='message in messages' :message='message' @on-delete='deleteMessage'></message-box>
+    <message-box v-for='message in messages' :message='message' @on-delete='deleteMessage' @on-update='updateMessage'></message-box>
   </div>
 
   <form action="#">
     <div class="form-group">
       <label for="#">本文</label>
       <textarea class='form-control' cols="30" rows="3" v-model='newMessage.body'></textarea>
+      <p v-show='showError' class="small" style="color: red;">本文を入力してください</p>
     </div>
     <div class="form-group">
       <a href="#" class="btn btn-primary" @click.prevent='addMessage'>投稿</a>
