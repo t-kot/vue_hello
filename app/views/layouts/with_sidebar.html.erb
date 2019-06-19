@@ -1,0 +1,16 @@
+<%= content_for(:main) do %>
+  <div class="with-sidebar">
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          sidebar
+        </div>
+        <div class="col-8">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= render file: 'layouts/main' %>

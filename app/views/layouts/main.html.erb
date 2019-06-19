@@ -1,0 +1,18 @@
+<%= content_for(:content) do %>
+<header class='global-header'>
+  <div class="container">
+    グローバルヘッダー
+  </div>
+</header>
+
+<main>
+  <%= content_for(:main) ? content_for(:main) : yield %>
+</main>
+
+<footer class="class global-footer">
+  <div class="container">
+    グローバルフッター
+  </div>
+</footer>
+<% end %>
+<%= render file: 'layouts/base' %>
